@@ -82,12 +82,12 @@ jobs:
         echo ${{ steps.getHash.outputs.commitHash_PassWall }} | tee .commitHash_PassWall
         echo ${{ steps.combHeader.outputs.commitHash_All }} | tee .commitHash_All   
         
-    - name: Trigger build
-      if: steps.cacheHash.outputs.cache-hit != 'true'
-      uses: peter-evans/repository-dispatch@v1
-      with:
-        token: ${{ secrets.ACTIONS_TRIGGER_PAT }}
-        event-type: Source Code Update
+#    - name: Trigger build
+#      if: steps.cacheHash.outputs.cache-hit != 'true'
+#      uses: peter-evans/repository-dispatch@v1
+#      with:
+#        token: ${{ secrets.ACTIONS_TRIGGER_PAT }}
+#        event-type: Source Code Update
 
     - name: Delete workflow runs
       uses: Lenyu2020/delete-workflow-runs@main
